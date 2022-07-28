@@ -1,0 +1,544 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* body::before{
+    display: block;
+    content: '';
+    height: 60px;
+} */
+@media(min-width:768px){
+    .news-input{
+        width: 50% !important;
+    }
+}
+/* hidden the scrollbar */
+::-webkit-scrollbar{
+    display: none;
+}
+
+.first-page{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.733),rgba(0,0,0,0.85)),url(../images/covid19.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.prof-img{
+    width: 100px;
+}
+
+.navigation-bar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navigation-bar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px;
+    position: relative;
+}
+.navigation-bar ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+.navigation-bar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #ffc107;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    transition: 0.4s;
+}
+.navigation-bar ul li:hover::after{
+    width: 100%;
+}
+
+/* Content */
+.content{
+    width: 100%;
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: white;
+}
+.title{
+    font-size: 70px;
+    line-height: 100px;
+    height: 100px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.slider{
+    color: #ffc107;
+    margin-left: 12px;
+    box-sizing: border-box;
+    animation: slider 6s linear infinite ;
+}
+@keyframes slider{
+    0%{
+        margin-top: -400px;
+    }
+    5%{
+        margin-top: -200px;
+    }
+    30%{
+        margin-top: -200px
+    }
+    35%{
+        margin-top: 0px
+    }
+    65%{
+        margin-top: 0px;
+    }
+    70%{
+        margin-top: 200px;
+    }
+    100%{
+        margin-top: 200px;
+    }
+}
+.content p{
+    width: 70%;
+    margin: 20px auto;
+    line-height: 25px;
+    font-family: sans-serif;
+}
+.content button{
+    padding: 15px 25px;
+    margin: 20px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border: 2px solid #ffc107;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(to right,transparent 30%,#ffc107 50%);
+    background-size: 150%;
+    background-position: left;
+    transition: background-position 0.5s;
+}
+.content button:hover{
+    background-position: right;
+    color: #000;
+}
+
+/* news section */
+.news{
+    height: 80px;
+    /* overflow: hidden; */
+    font-size: 1.4rem;
+    text-align: center;
+}
+.newslide{
+    animation: showcase 55s linear infinite;
+    font-weight: bold;
+    display: inline-flex;
+    margin-left: -300px;
+}
+.newslide div{
+    margin: 20px;
+    display: inline-block;
+    width: 800px;
+}
+@keyframes showcase{
+    0%{margin-left: 0px;}
+    100%{margin-left: -10000px;}
+}
+.newslide div:nth-child(2n+1){
+    color: #ffc107;
+}
+
+
+/* adding dark mode */
+.toggle{
+    text-align: center;
+}
+
+.switch{
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: rgb(196, 199, 199);
+    border-radius: 50px;
+    position: absolute;
+    transition: 0.2s;
+    cursor: pointer;
+    right: 10px;
+    top: 45px;
+}
+.switch::before{
+    position:absolute;
+    content: '';
+    top: 1px;
+    left: 2.5px;
+    background-image: url(../images/moon-solid.svg);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    transition:all 0.3s;
+    color: white;
+}
+
+.dark{
+    background-color: #202020;
+}
+
+body.dark h1{
+    color: white;
+}
+body.dark .switch::before{
+    left: 19px;
+    background-image: url(../images/sun-solid.svg);
+    color: yellow;
+}
+body.dark .container{
+    color: white;
+}
+#graph{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.804),rgba(0, 0, 0, 0.868)),url(../images/graph.jpg);
+    background-size: 1000px;
+    background-position:left;
+    transition: all 0.5s;
+}
+#graph:hover{
+    background-size: 1100px;
+}
+#features{
+    height: 100vh;
+    background: linear-gradient(rgba(14, 19, 126, 0.815),rgba(10, 67, 160, 0.947));
+}
+body.dark #features{
+    background: linear-gradient(rgba(100, 99, 99, 0.815),rgba(41, 43, 46, 0.947));
+}
+.msg-container{
+    width: 600px;
+    height: 280px;
+    position: relative;
+    left: 14%;
+    top: 57%;
+    transform: translateY(-50%);
+    overflow: hidden;
+}
+.symtoms-slider{
+    display: inline-flex;
+    transition: 0.5s;
+}
+.msg-col{
+    width: 600px;
+    height: 280px;
+}
+.msg-col h1{
+    color: rgb(236, 235, 235);
+    font-size: 80px;
+    font-weight: 100;
+    margin: 10px 0;
+}
+.msg-col p{
+    color: rgb(255, 251, 251);
+    font-size: 15px;
+    line-height: 25px;
+}
+.controller{
+    width: 1px;
+    height: 320px;
+    display: block;
+    background: #ffc1076e;
+    position: absolute;
+    right: 50px;
+    transform: translateY(-50%);
+    transition:0.1s;
+}
+.controller:hover{
+    width: 2.6px;
+}
+#line1,#line2,#line3,#line4{
+    height: 80px;
+    width: 10px;
+    cursor: pointer;
+    transform: translateX(-50%);
+}
+#active{
+    width: 3px;
+    height: 80px;
+    border-radius: 10px;
+    background: rgb(214, 152, 28);
+    position: absolute;
+    top: 0px;
+    transform: translateX(-1.1px);
+    transition:top 0.4s;
+}
+.controller:hover #active{
+    width: 5px;
+}
+
+
+body.dark .bg-primary{
+    background-color: rgb(31, 30, 30)!important;
+}
+body.dark .bg-light{
+    background-color: #dc3545!important;
+    color: white;
+}
+/* team section */
+
+#team .card{
+    height: 100%;
+    border-radius: 7px;
+    box-shadow: 5px 5px 15px #985b5b3e;
+}
+body.dark .bi{
+    color: #eeeeee!important;
+}
+.bi-twitter:hover{
+    color: #1DA1F2!important;
+}
+.bi-facebook:hover{
+    color: #4267B2!important;
+}
+.bi-instagram:hover{
+    color: #E1306C!important;
+}
+.bi-linkedin:hover{
+    color: #0e76a8!important;
+}
+body.dark .bi-twitter:hover{
+    color: #1DA1F2!important;
+}
+body.dark .bi-facebook:hover{
+    color: #4267B2!important;
+}
+body.dark .bi-instagram:hover{
+    color: #E1306C!important;
+}
+body.dark .bi-linkedin:hover{
+    color: #0e76a8!important;
+}
+
+body.dark #question .accordion-button{
+    background-color: #dc3545!important;
+    color: white;
+}
+
+body.dark #question .accordion-body{
+    background-color: #dc354673!important;
+    color: black;
+}
+
+.accordion-item{
+    border-radius: 20px;
+}
+
+/* maps */
+
+body.dark #maps .btn,
+body.dark #graph .btn{
+    background-color: #dc3545!important;
+    border: none;
+    color: white;
+    padding: 10px!important;
+    font-size: 1rem;
+}
+body.dark #maps .btn:hover,
+body.dark #graph .btn:hover{
+    background-color: #86121e!important;
+}
+/*                   contact section */
+#contact{
+    color: black;
+    height:500px;
+}
+#contact .section-heading{
+    text-align: center;
+    font-size: 2rem;
+}
+body.dark #contact .section-heading{
+    color: white!important;
+}
+.contact-display{
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+    margin-left: 10%;
+}
+.details-input{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+form{
+    text-align: center;
+}
+.details-input input,
+.details-input textarea{
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 2px solid rgb(126, 123, 123);
+    padding: 4px;
+    padding-left: 10px;
+    outline: none;
+    width: 100%;
+    margin-bottom: 20px;
+}
+body.dark .details-input input,
+body.dark .details-input textarea{
+    border-color: white;
+    color: white;
+}
+.my-details{
+    width: 40%;
+}
+.submit-btn{
+    background-color: #0d6efd;
+    border: 2px solid white;
+    padding: 8px;
+    width: 40%;
+    color: white;
+    font-weight: bold;
+    align-self: center;
+    margin-top: 20px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+.submit-btn:hover{
+    background-color: #0c56c4;
+}
+body.dark .btn:hover{
+    background-color: #86121e!important;
+}
+body.dark .submit-btn{
+    background-color: #dc3545!important;
+    color: white;
+    font-size: 1rem;
+    border: 3px solid #86121e;
+}
+.my-details h4,
+.my-details p{
+    color: rgb(20, 20, 20);
+}
+body.dark .my-details h4,
+body.dark .my-details p{
+    color: white;
+}
+.my-details p{
+    font-size: 0.9rem;
+}
+
+.details-input .submit-btn{
+    word-wrap: break-word;
+    width: 53%;
+}
+@media screen and (max-width:720px){
+    .details-input .btn{
+        width: 70%;
+    }
+}
+
+/* feedback alert design */
+.alert{
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 350px;
+    height: 70px;
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px 35px 20px 25px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border-left: 6px solid #ffc107;
+    overflow: hidden;
+    transform: translateX(calc(100% + 30px));
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+body.dark .alert{
+    border-left:6px solid #dc3545;
+}
+.alert.active{
+    transform: translateX(0%);
+}
+.alert .alert-content{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+}
+.alert-content .check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    background-color: #ffc107;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+}
+body.dark .alert-content .check{
+    background-color: #dc3545;
+}
+.alert-content .message{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+.alert-content .message span{
+    font-size: 1rem;
+}
+.message .text{
+    font-size: 20px;
+    font-weight: 400;
+    color: #666666;
+}
+.message .text.text1{
+    font-weight: 600;
+    color: #333;
+}
+.alert .close{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.alert .close:hover{
+    opacity: 1;
+}
+.alert .progress{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background-color: #ddd;
+}
+.alert .progress::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ffc107;
+}
+body.dark .alert .progress::before{
+    background-color: #dc3545;
+}
+.progress.active::before{
+    animation: progress 5s linear forwards;
+}
+@keyframes progress {
+    100%{
+        right: 100%;
+    }
+}
